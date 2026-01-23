@@ -4,7 +4,7 @@ from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.linear_model import LogisticRegression
 
 # Load engineered features (CSV)
-df = pd.read_csv("/content/drive/MyDrive/Zaalima project/features_engineering_output.csv")
+df = pd.read_csv("data/processed/features_engineering_output.csv")
 X = df.drop(["failure_in_next_24h", "arm_id", "timestamp"], axis=1)
 y = df["failure_in_next_24h"]
 
@@ -45,7 +45,7 @@ print("Best parameters:", grid.best_params_)
 
 joblib.dump(
     best_model,
-    "/content/drive/MyDrive/Zaalima project/baseline_logistic_gridsearch.joblib"
+    "model/baseline_logistic_gridsearch.joblib"
 )
 
 print(" Baseline Logistic Regression trained with GridSearch")
