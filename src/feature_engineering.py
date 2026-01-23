@@ -52,7 +52,7 @@ def feature_engineering(input_csv):
 if __name__ == "__main__":
     df = feature_engineering("data/raw/factoryguard_synthetic_500.csv")
 
-    df.to_csv("data/processed/features.csv", index=False)
-    joblib.dump(df, "data/processed/features.joblib")
+    df.to_csv("data/processed/features_engineering_output.csv.csv", index=False)
+    joblib.dump(df, "data/processed/features_engineering.joblib")
 
     print("Feature engineering completed")
