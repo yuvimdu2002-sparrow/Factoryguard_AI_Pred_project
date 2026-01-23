@@ -8,7 +8,6 @@ df = pd.read_csv("/content/factoryguard_synthetic_500.csv")
 df['timestamp'] = pd.to_datetime(df['timestamp'])
 df = df.sort_values(['arm_id', 'timestamp'])
 
-# Exploratory Data Analysis
 print(df.columns)
 print(df.isna().sum())
 print(df.info())
