@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 
 df=pd.read_csv("/content/factoryguard_synthetic_500.csv")
