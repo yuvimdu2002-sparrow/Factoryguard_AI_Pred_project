@@ -39,7 +39,10 @@ def feature_engineering(input_csv):
     print(df.info())
     print(df.describe())
 
-    df.drop(["time_to_failure_hours","pressure_bar_roll_std_1h","vibration_rms_mm_s_roll_std_1h","temperature_c_roll_std_1h"], axis=1, inplace=True)
+    # drop columns with the help of feature selection report
+    drop_features=["time_to_failure_hours","pressure_bar_roll_std_1h","vibration_rms_mm_s_roll_std_1h",
+                "temperature_c_roll_std_1h","error_count","load_pct","maintenance_days_ago","humidity_pct"]
+    df.drop(drop_features, axis=1, inplace=True)
     print(df)
 
     return df
@@ -48,7 +51,7 @@ def feature_engineering(input_csv):
 if __name__ == "__main__":
     df = feature_engineering("data/raw/factoryguard_synthetic_500.csv")
 
-    df.to_csv("data/processed/features_engineering_output.csv.csv", index=False)
-    joblib.dump(df, "data/processed/features_engineering.joblib")
+    df.to_csv("data/processed/features_engineering_output.csv", index=False)
+    joblib.dump(df, "model/features_engineering.joblib")
 
     print("Feature engineering completed")
