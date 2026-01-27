@@ -8,12 +8,17 @@ from sklearn.linear_model import LogisticRegression
 df = pd.read_csv("data/processed/features_engineering_output.csv")
 X = df.drop(["failure_in_next_24h", "arm_id", "timestamp"], axis=1)
 y = df["failure_in_next_24h"]
+print(df.columns)
+print(df.isna().sum())
+print(df.info())
+print(df.describe())
+print(df.shape)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2,stratify=y,random_state=42)
 
 # Baseline Logistic Regression
 
-log_reg = LogisticRegression(class_weight="balanced",max_iter=2000,n_jobs=-1)
+log_reg = LogisticRegression(class_weight="balanced",max_iter=2000)
 
 param_grid = {"C": [0.01, 0.1, 1, 10],"penalty": ["l2"]}
 
