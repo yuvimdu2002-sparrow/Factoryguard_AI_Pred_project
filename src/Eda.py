@@ -1,9 +1,9 @@
 import pandas as pd
-
-df=pd.read_csv("/content/factoryguard_synthetic_500.csv")
-
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+
+df = pd.read_csv("data/raw/factoryguard_synthetic_500.csv")
 
 # Convert 'timestamp' to datetime objects for proper plotting
 df['timestamp'] = pd.to_datetime(df['timestamp'])
@@ -12,6 +12,7 @@ df['timestamp'] = pd.to_datetime(df['timestamp'])
 sns.set_style("whitegrid")
 
 print("Generating visualizations for the DataFrame...")
+
 
 # 1. Histogram for 'temperature_c'
 plt.figure(figsize=(10, 6))
@@ -57,6 +58,3 @@ plt.show()
 
 sns.histplot(data=df, x='temperature_c', hue='arm_id', multiple='stack')
 plt.show()
-
-sns.clustermap
-

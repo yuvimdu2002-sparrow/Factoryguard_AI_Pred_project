@@ -1,4 +1,3 @@
-!pip install optuna
 import optuna
 import joblib
 import pandas as pd
@@ -10,7 +9,7 @@ df = pd.read_csv("data/processed/features_engineering_output.csv")
 X = df.drop(["failure_in_next_24h", "arm_id", "timestamp"], axis=1)
 y = df["failure_in_next_24h"]
 
-X_train, _, y_train, _ = train_test_split(
+X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, stratify=y, random_state=42
 )
 
