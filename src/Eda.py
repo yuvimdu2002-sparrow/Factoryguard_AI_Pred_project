@@ -1,12 +1,30 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.feature_selection import SelectKBest, f_classif
 
 
 df = pd.read_csv("data/raw/factoryguard_synthetic_500.csv")
 
 # Convert 'timestamp' to datetime objects for proper plotting
 df['timestamp'] = pd.to_datetime(df['timestamp'])
+
+df["failure_in_next_24h"] = (df["time_to_failure_hours"].notna() &(df["time_to_failure_hours"] <= 24)).astype(int)
+    
+
+X = df.drop(["failure_in_next_24h", "arm_id", "timestamp","time_to_failure_hours"], axis=1)
+y = df["failure_in_next_24h"]
+
+chi = SelectKBest(score_func=f_classif,k=5)
+X_selected=chi.fit_transform(X,y)
+
+print(X_selected.get_support(indices=True))
+
+
+
+
+
+'''
 
 # Set the style for the plots
 sns.set_style("whitegrid")
@@ -58,3 +76,4 @@ plt.show()
 
 sns.histplot(data=df, x='temperature_c', hue='arm_id', multiple='stack')
 plt.show()
+'''

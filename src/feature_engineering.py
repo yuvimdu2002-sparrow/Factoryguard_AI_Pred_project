@@ -30,8 +30,10 @@ def feature_engineering(input_csv):
         df[f'{sensor}_lag_2'] = df.groupby('arm_id')[sensor].shift(2)
 
     df = df.groupby('arm_id').apply(lambda x: x.iloc[12:]).reset_index(drop=True)
-
     
+    df["failure_in_next_24h"] = (df["time_to_failure_hours"].notna() &(df["time_to_failure_hours"] <= 24)).astype(int)
+    print(df["failure_in_next_24h"].value_counts())
+
     print(df.columns)
     print(df.isna().sum())
     print(df.info())
