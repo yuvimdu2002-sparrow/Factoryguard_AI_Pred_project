@@ -6,13 +6,16 @@ from sklearn.linear_model import LogisticRegression
 # Load engineered features (CSV)
 
 df = pd.read_csv("data/processed/features_engineering_output.csv")
-X = df.drop(["failure_in_next_24h", "arm_id", "timestamp"], axis=1)
+X = df.drop(["failure_in_next_24h"], axis=1)
 y = df["failure_in_next_24h"]
+
 print(df.columns)
 print(df.isna().sum())
 print(df.info())
 print(df.describe())
 print(df.shape)
+print(df["failure_in_next_24h"].value_counts())
+
 
 X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2,stratify=y,random_state=42)
 
