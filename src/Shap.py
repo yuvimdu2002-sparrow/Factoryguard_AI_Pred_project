@@ -46,4 +46,5 @@ shap.force_plot(
 plt.savefig("/content/drive/MyDrive/Zaalima project/shap_local_failure_explanation.png")
 plt.close()
 
+
 print("Local SHAP explanation saved")
