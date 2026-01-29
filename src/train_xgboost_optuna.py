@@ -1,7 +1,7 @@
-#import optuna
+import optuna
 import joblib
 import pandas as pd
-#from xgboost import XGBClassifier
+from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
 
 df = pd.read_csv("data/processed/features_engineering_output.csv")
@@ -12,8 +12,7 @@ y = df["failure_in_next_24h"]
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, stratify=y, random_state=42
 )
-print(df.isna().sum())
-'''
+
 scale_pos_weight = y_train.value_counts()[0] / y_train.value_counts()[1]
 
 def objective(trial):
@@ -45,4 +44,3 @@ best_model.fit(X_train, y_train)
 
 joblib.dump(best_model, "model/xgboost_tuned.joblib")
 print(" XGBoost trained with Optuna")
-'''
