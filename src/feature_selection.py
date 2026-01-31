@@ -50,8 +50,8 @@ rfe_rank=pd.DataFrame({'Feature':X.columns,'Rank':rfe.ranking_}).sort_values(by=
 print(rfe_rank)
 
 best_feature=X.columns[rfe.support_]
-print(best_feature)
 
+print("best features",best_feature)
 #final report for feature selection
 report['Wrap_method_Rank']=rfe.ranking_
 print(report)
