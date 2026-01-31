@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val
 from sklearn.metrics import accuracy_score, precision_score, average_precision_score
 
 #  LOAD DATA
-df = pd.read_csv("/content/drive/MyDrive/Zaalima project/features_engineering_output.csv")
+df = pd.read_csv("data/processed/features_engineering_output.csv")
 
 X = df.drop(["failure_in_next_24h"], axis=1)
 y = df["failure_in_next_24h"]
@@ -67,6 +67,6 @@ print("Precision:", precision_score(y_test, y_pred))
 print("PR-AUC   :", average_precision_score(y_test, y_probs))
 
 # SAVE MODEL
-joblib.dump(best_model, "/content/drive/MyDrive/Zaalima project/xgboost_tuned.joblib")
+joblib.dump(best_model, "model/xgboost_tuned.joblib")
 
 print("XGBoost trained with Optuna + Cross Validation")
