@@ -15,13 +15,7 @@ X = df.drop(["failure_in_next_24h"], axis=1)
 y = df["failure_in_next_24h"]
 
 # Train / Test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    stratify=y,
-    random_state=42
-)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
 
 # Load FINAL production model
 loaded = joblib.load("model/xgboost_tuned.joblib")
