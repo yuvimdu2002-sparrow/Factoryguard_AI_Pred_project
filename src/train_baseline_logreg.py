@@ -10,6 +10,7 @@ X = df.drop(["failure_in_next_24h"], axis=1)
 y = df["failure_in_next_24h"]
 
 print(df.columns)
+print(df.nunique)
 print(df.isna().sum())
 print(df.info())
 print(df.describe())
