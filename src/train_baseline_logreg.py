@@ -9,6 +9,10 @@ df = pd.read_csv("data/processed/features_engineering_output.csv")
 X = df.drop(["failure_in_next_24h"], axis=1)
 y = df["failure_in_next_24h"]
 
+feature_columns=X.columns.tolist()
+print(feature_columns)
+joblib.dump(feature_columns,"model/feature_columns.joblib")
+
 print(df.columns)
 print(df.nunique)
 print(df.isna().sum())
