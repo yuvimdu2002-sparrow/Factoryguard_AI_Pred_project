@@ -33,8 +33,7 @@ The project focuses on **imbalanced data handling**, **high-precision prediction
   - `0` → No failure
 
 ## 🧱 Project Structure
-
-FactoryGuard-AI_Pred_project/
+- FactoryGuard-AI_Pred_project/
 ├── data/
 │   ├── raw/
 │   │   └── factoryguard_synthetic_500.csv
@@ -61,6 +60,7 @@ FactoryGuard-AI_Pred_project/
 ├── .gitattributes
 ├── requirements.txt
 └── README.md
+
 
 ---
 
