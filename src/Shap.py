@@ -33,17 +33,24 @@ print("Global SHAP summary saved")
 
 failure_case = X.iloc[[0]]  # replace index with an actual failure if needed
 
-shap_value_single = explainer.shap_values(failure_case)
+# Compute SHAP values
+shap_values = explainer(failure_case)
 
-shap.force_plot(
-    explainer.expected_value,
-    shap_value_single,
-    failure_case,
-    matplotlib=True,
-    show=False
+# Create explanation object properly
+exp = shap.Explanation(
+    values=shap_values.values[0],
+    base_values=shap_values.base_values[0],
+    data=failure_case.iloc[0],
+    feature_names=X.columns
 )
 
-plt.savefig("report/shap_local_failure_explanation.png")
-plt.close()
+# Waterfall Plot
+plt.figure(figsize=(10,6))
+shap.plots.waterfall(exp, max_display=10, show=False)
+
+# SAVE AFTER SHAP RENDER
+plt.tight_layout()
+plt.savefig("/content/drive/MyDrive/report/shap_local_failure_explanation.png", dpi=300, bbox_inches="tight")
+plt.show()
 
 print("Local SHAP explanation saved")
