@@ -32,10 +32,8 @@ The project focuses on **imbalanced data handling**, **high-precision prediction
   - `1` → Failure expected within 24 hours
   - `0` → No failure
 
----
+## 🧱 Project Structure
 
-
----
 
 ## 🔧 Feature Engineering
 
