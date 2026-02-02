@@ -32,50 +32,6 @@ The project focuses on **imbalanced data handling**, **high-precision prediction
   - `1` → Failure expected within 24 hours
   - `0` → No failure
 
-## 🧱 Project Structure
-
-FactoryGuard-AI/
-│
-├── README.md
-├── requirements.txt
-├── .gitattributes
-│
-├── data/
-│   ├── raw/
-│   │   └── factoryguard_synthetic_500.csv
-│   │
-│   └── processed/
-│       └── features_engineering_output.csv
-│
-├── notebooks/
-│   ├── 01_eda.ipynb
-│   ├── 02_feature_analysis.ipynb
-│   └── 03_model_experiments.ipynb
-│
-├── src/
-│   ├── __init__.py
-│   ├── feature_engineering.py
-│   ├── feature_selection.py
-│   ├── train_baseline_logreg.py
-│   ├── train_xgboost_optuna.py
-│   ├── model_evaluation.py
-│   └── shap_explainability.py
-│
-├── model/
-│   ├── baseline_logistic_gridsearch.joblib
-│   ├── xgboost_tuned.joblib
-│   └── features_engineering.joblib
-│
-├── reports/
-│   ├── shap_global_feature_importance.png
-│   ├── shap_local_failure_explanation.png
-│   └── feature_selection_report.csv
-│
-├── app/
-   ├── app.py
-   └── templates/
-       └── index.html
-
 ---
 
 ## 🔧 Feature Engineering
@@ -139,6 +95,4 @@ Generated outputs:
 ```bash
 pip install -r requirements.txt
 
-
-## 🧱 Project Structure
-
+---
