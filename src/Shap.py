@@ -50,7 +50,7 @@ shap.plots.waterfall(exp, max_display=10, show=False)
 
 # SAVE AFTER SHAP RENDER
 plt.tight_layout()
-plt.savefig("/content/drive/MyDrive/report/shap_local_failure_explanation.png", dpi=300, bbox_inches="tight")
+plt.savefig("report/shap_local_failure_explanation.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 print("Local SHAP explanation saved")
