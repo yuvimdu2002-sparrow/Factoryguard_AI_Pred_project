@@ -33,7 +33,35 @@ The project focuses on **imbalanced data handling**, **high-precision prediction
   - `0` → No failure
 
 ## 🧱 Project Structure
+FactoryGuard-AI_Pred_project/
+├── data/
+│ ├── raw/
+│ │ └── factoryguard_synthetic_500.csv
+│ └── processed/
+│ └── features_engineering_output.csv
+├── model/
+│ ├── baseline_logistic_gridsearch.joblib
+│ ├── features_engineering.joblib
+│ └── xgboost_tuned.joblib
+├── notebook/
+│ └── EDA.ipynb
+├── report/
+│ ├── feature_selection_report.csv
+│ ├── shap_global_feature_importance.png
+│ └── shap_local_failure_explanation.png
+├── src/
+│ ├── init.py
+│ ├── feature_engineering.py
+│ ├── feature_selection.py
+│ ├── model_evaluation.py
+│ ├── Shap.py
+│ ├── train_baseline_logreg.py
+│ └── train_xgboost_optuna.py
+├── .gitattributes
+├── requirements.txt
+└── README.md
 
+---
 
 ## 🔧 Feature Engineering
 
