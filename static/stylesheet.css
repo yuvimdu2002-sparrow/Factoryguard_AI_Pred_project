@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: skyblue;
+}
+
+img {
+    padding-top: 10px;
+    padding-left: 7px;
+    padding-bottom: 10px;
+    height: 500px;
+    width: 99%;
+}
+
+h1 {
+    text-align: center;
+    font-style: italic;
+    padding-top: 20px;
+}
+.click{
+    display: flex;
+}
+
+.container {
+    display: flex;
+    justify-content:space-between;
+}
+
+.subcontainer {
+    display: flex;
+}
+span{
+    margin: 20px;
+    display:flex;
+    font-style:oblique;
+    font-size: larger;
+}
+
+button:hover{
+    background-color: skyblue;
+    cursor:pointer;
+}
+button {
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    display: flex;
+}
