@@ -96,3 +96,133 @@ Generated outputs:
 pip install -r requirements.txt
 
 ---
+
+## Web Application
+
+The Flask web app allows users to:
+
+- Enter sensor values
+- Upload JSON input
+- Click Predict
+- View probability result
+- See SHAP explanation graphs
+
+---
+
+## Technologies Used
+
+- Python  
+- Flask  
+- Scikit-Learn  
+- XGBoost  
+- Pandas  
+- NumPy  
+- SHAP  
+- HTML  
+- CSS  
+- Joblib  
+
+---
+
+## Project Structure
+
+```text
+FactoryGuard_AI_Pred_Project/
+│
+├── data/
+│   ├── processed/
+│   └── raw/
+│
+├── json_input/
+│   └── input.json
+│
+├── model/
+│   ├── baseline_logistic_gridsearch.joblib
+│   ├── feature_columns.joblib
+│   ├── features_engineering.joblib
+│   └── xgboost_optuna_tuned.joblib
+│
+├── notebook/
+│   └── EDA.ipynb
+│
+├── report/
+│   ├── feature_selection_report.csv
+│   ├── model_evaluation_comparison.csv
+│   ├── pr_curve_comparison.png
+│   ├── shap_global_feature_importance.jpeg
+│   └── shap_local_failure_explanation.png
+│
+├── src/
+│   ├── feature_engineering.py
+│   ├── feature_selection.py
+│   ├── model_evaluation.py
+│   ├── shap.py
+│   ├── train_baseline_logreg.py
+│   └── train_xgboost_optuna.py
+│
+├── static/
+│   ├── factoryguard_ai_image.png
+│   └── style_text.css
+│
+├── templates/
+│   └── pred.html
+│
+├── app.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## How to Run the Project
+
+1. Clone the repository  
+2. Install dependencies  
+   pip install -r requirements.txt  
+3. Run the application  
+   python app.py  
+4. Open browser and visit  
+   http://127.0.0.1:5000  
+
+---
+
+## Project Features
+
+- Machine failure prediction  
+- JSON input support  
+- Simple web UI  
+- SHAP explainability graphs  
+- Clean modular folder structure  
+- High precision ML model  
+
+---
+
+## Future Improvements
+
+- Live sensor data integration  
+- Cloud deployment  
+- Dashboard analyics
+- Email and SMS alerts
+  
+---
+
+---
+
+## Team / Contributors
+
+This project was developed as a **team project** as part of learning and portfolio development.
+
+Team Members:
+
+- Yuvaraj A
+- Somashekara T.R
+- Dhanunjay Kadapa
+- Satyajit Maharana
+
+Each member contributed to different parts such as data preprocessing, model training, web development, and documentation.
+
+---
+
+## License
+
+This project is created for educational and portfolio purposes.
