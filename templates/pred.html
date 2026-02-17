@@ -3,33 +3,37 @@
 
 <head>
     <title>Factory Guard AI</title>
-    <link rel="stylesheet" href={{ url_for("static",filename="style_text.css") }}>
+    <link rel="stylesheet" href={{ url_for("static", filename="style_text.css")}}>
 </head>
 
 <body>
-    <div class=head>
-        <h1>Machine Failure Prediction</h1>
+    <div class=main>
+        <h1 class="head">Machine Failure Prediction</h1>
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <div>
+                <img class=img1 src={{ url_for("static", filename="factoryguard_ai_image.png") }}>
+            </div>
+            <div>
+                <img  class=img2 src={{ url_for("static", filename="factoryguard_ai_image.png") }}>
+            </div>
+            <div class=container>
+                <div class=sub1>
+                    <p class=fil_line><b>Upload JSON Sensor Input File</b></p><br>
+                    <input type="file" id="jsonFile" name="file" accept=".json" required><br>
+                </div><br><br>
+                <div class=btn>
+                    <button type="submit">Predict</button>
+                </div>
+                <div class=sub2>
+                    <h3>Result:</h3>
+                    <p><b>Failure Probability:</b> {{ failure_probability }}</p>
+                    <p><b>Latency ms:</b> {{ latency_ms }}</p>
+                </div>
+                <div class=sub3>
+                    <h1>{{ result }}<h1>
+                </div>
+            </div>
     </div>
-    <form action="/predict" method="POST" enctype="multipart/form-data">
-        <div class=res>
-            <img src={{ url_for("static",filename="factoryguard_ai_image.png") }}>
-            <h1 class=outpt>{{ result }}<h1>
-        </div>
-        </div>
-        <div class=container>
-            <div class=subcontainer>
-                <p class=fil_line><b>Upload JSON Sensor Input File</b></p><br>
-                <input type="file" id="jsonFile" name="file" accept=".json" required>
-            </div>
-            <div class=click>
-                <button type="submit">Predict</button>
-            </div>
-            <div class=pred>
-                <h3>Result:</h3>
-                <p><b>Failure Probability:</b> {{ failure_probability }}</p>
-                <p><b>Latency ms:</b> {{ latency_ms }}</p>
-            </div>
-        </div>
     </form>
 </body>
 

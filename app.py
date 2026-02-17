@@ -7,7 +7,7 @@ import time
 
 app = Flask(__name__)
 
-model = joblib.load("model/xgboost_optuna_tuned.joblib")
+model = joblib.load("model/xgboost_tuned.joblib")
 
 # Web page
 @app.route("/")
@@ -33,8 +33,8 @@ def predict_file():
 
     latency_ms = (time.perf_counter() - start_time) * 1000
 
-    if prob >=0.7:
-        result="Machine may fail"
+    if prob>=0.0877:
+        result="Machine may fail (Alert)"
     else:
         result="Machine is Normal"
 
