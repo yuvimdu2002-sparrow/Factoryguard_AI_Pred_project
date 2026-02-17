@@ -95,6 +95,7 @@ Generated outputs:
 ```bash
 pip install -r requirements.txt
 
+```
 ---
 
 ## Web Application
@@ -105,7 +106,6 @@ The Flask web app allows users to:
 - Upload JSON input
 - Click Predict
 - View probability result
-- See SHAP explanation graphs
 
 ---
 
@@ -131,10 +131,14 @@ FactoryGuard_AI_Pred_Project/
 │
 ├── data/
 │   ├── processed/
+│   │      └── factoryguard_synthetic_500.csv
 │   └── raw/
+│          └── features_engineering_output.csv
 │
 ├── json_input/
-│   └── input.json
+│   └── input 1.json
+│   └── input 2.json
+│
 │
 ├── model/
 │   ├── baseline_logistic_gridsearch.joblib
@@ -225,4 +229,4 @@ Each member contributed to different parts such as data preprocessing, model tra
 
 ## License
 
-This project is created for educational and portfolio purposes.
+This project is developed solely for *educational and portfolio purposes* as part of an internship/project work. No commercial use is intended. Feel free to explore and learn from the code.

@@ -33,10 +33,16 @@ def predict_file():
 
     latency_ms = (time.perf_counter() - start_time) * 1000
 
+    if prob >=0.7:
+        result="Machine may fail"
+    else:
+        result="Machine is Normal"
+
     return render_template(
         "pred.html",
-        failure_probability= float(prob),
-        latency_ms= round(latency_ms, 2)
+        failure_probability= round(prob, 2),
+        latency_ms= round(latency_ms, 2),
+        result=result
     )
 
 

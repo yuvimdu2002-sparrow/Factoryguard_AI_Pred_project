@@ -23,7 +23,7 @@ shap_values = explainer.shap_values(background)
 plt.figure()
 shap.summary_plot(shap_values, background, show=False)
 plt.tight_layout()
-plt.savefig("report/shap_global_feature_importance.png")
+plt.savefig("report/Image_report/shap_global_feature_importance.png")
 plt.close()
 
 print("Global SHAP summary saved")
@@ -50,7 +50,7 @@ shap.plots.waterfall(exp, max_display=10, show=False)
 
 # SAVE AFTER SHAP RENDER
 plt.tight_layout()
-plt.savefig("report/shap_local_failure_explanation.png", dpi=300, bbox_inches="tight")
+plt.savefig("report/Image_report/shap_local_failure_explanation.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 print("Local SHAP explanation saved")

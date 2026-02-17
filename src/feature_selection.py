@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.feature_selection import SelectKBest, f_classif, mutual_info_classif, RFE
+from sklearn.feature_selection import SelectKBest, f_classif, RFE
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
@@ -24,6 +24,16 @@ rf = RandomForestClassifier(class_weight="balanced",random_state=42,n_estimators
 rf.fit(X,y)
 rf_importance=pd.DataFrame({'Feature':X.columns,'Importance':rf.feature_importances_}).sort_values(by='Importance',ascending=False)
 print(rf_importance.head(10))
+
+#Feature importance in visual form
+plt.figure(figsize=(10,8))
+plt.barh(X.columns, rf.feature_importances_)
+plt.xlabel("Impotance Score")
+plt.ylabel("Feature")
+plt.title("Feature importance (Embedded Method)")
+plt.tight_layout()
+plt.savefig("report/Image_report/Feature importance.png")
+plt.show()
 
 
 top_feature=rf_importance['Feature'].head(5).tolist()
@@ -55,5 +65,4 @@ print("best features",best_feature)
 #final report for feature selection
 report['Wrap_method_Rank']=rfe.ranking_
 print(report)
-report.to_csv("feature_selection_report.csv", index=False)
-
+report.to_csv("report/csv_report/feature_selection_report.csv", index=False)

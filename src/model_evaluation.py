@@ -1,4 +1,4 @@
-from sklearn.linear_model import LogisticRegression
+﻿from sklearn.linear_model import LogisticRegression
 import xgboost
 import matplotlib.pyplot as plt
 import joblib
@@ -26,8 +26,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Load models
 
-log_model = joblib.load("/content/drive/MyDrive/Zaalima project/baseline_logistic_gridsearch.joblib")
-xgb_model = joblib.load("/content/drive/MyDrive/Zaalima project/xgboost_tuned.joblib")
+log_model = joblib.load("model/baseline_logistic_gridsearch.joblib")
+xgb_model = joblib.load("model/xgboost_tuned.joblib")
 
 # Predict probabilities
 
@@ -86,7 +86,7 @@ evaluation_df = pd.DataFrame(rows)
 
 # Save CSV
 evaluation_df.to_csv(
-    "report/model_evaluation_comparison.csv",
+    "report/csv_report/model_evaluation_comparison.csv",
     index=False
 )
 
@@ -103,5 +103,5 @@ plt.title("Precision–Recall Curve Comparison")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.savefig("report/pr_curve_comparison.png")
+plt.savefig("report/Image_report/pr_curve_comparison.png")
 plt.show()
