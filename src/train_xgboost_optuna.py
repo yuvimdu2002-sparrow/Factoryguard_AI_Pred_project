@@ -1,7 +1,7 @@
-import optuna
+#import optuna
 import joblib
 import pandas as pd
-from xgboost import XGBClassifier
+#from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
 from sklearn.metrics import accuracy_score, precision_score, average_precision_score
 
@@ -12,10 +12,14 @@ X = df.drop(["failure_in_next_24h"], axis=1)
 y = df["failure_in_next_24h"]
 
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, stratify=y, random_state=42
+    X, y, test_size=0.2,random_state=42
 )
-
+print(X_test.shape,y_test.shape)
 scale_pos_weight = y_train.value_counts()[0] / y_train.value_counts()[1]
+print(y_train.value_counts()[0] )
+print(y_train.value_counts()[1])
+print(scale_pos_weight)
+
 
 # CROSS VALIDATION
 cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
@@ -46,7 +50,7 @@ def objective(trial):
 
 # OPTUNA SEARCH
 study = optuna.create_study(direction="maximize")
-study.optimize(objective, n_trials=30)
+study.optimize(objective, n_trials=20)
 
 # FINAL MODEL
 best_model = XGBClassifier(
@@ -58,15 +62,26 @@ best_model = XGBClassifier(
 
 best_model.fit(X_train, y_train)
 
+
+# SAVE MODEL
+joblib.dump(best_model, "model/xgboost_tuned.joblib")
+
 #  EVALUATION
 y_pred = best_model.predict(X_test)
 y_probs = best_model.predict_proba(X_test)[:, 1]
 
 print("Accuracy :", accuracy_score(y_test, y_pred))
 print("Precision:", precision_score(y_test, y_pred))
+print("Recall   :", recall_score(y_test, y_pred))
 print("PR-AUC   :", average_precision_score(y_test, y_probs))
 
-# SAVE MODEL
-joblib.dump(best_model, "model/xgboost_tuned.joblib")
+from sklearn.metrics import confusion_matrix
+cm_matrix=confusion_matrix(y_test, y_pred)
 
-print("XGBoost trained with Optuna + Cross Validation")
+sns.heatmap(cm_matrix,cmap='Blues',annot=True,fmt="d")
+xlabel=plt.xlabel("Predicted")
+ylabel=plt.ylabel("Actual")
+plt.savefig("report/Image_report/confusion_matrix_xgb.png")
+plt.show()
+
+print("XGBoost trained with Optuna & Cross Validation")
