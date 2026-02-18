@@ -150,11 +150,8 @@ FactoryGuard_AI_Pred_Project/
 │   └── EDA.ipynb
 │
 ├── report/
-│   ├── feature_selection_report.csv
-│   ├── model_evaluation_comparison.csv
-│   ├── pr_curve_comparison.png
-│   ├── shap_global_feature_importance.jpeg
-│   └── shap_local_failure_explanation.png
+│   ├── Image_report/
+│   └── csv_report/
 │
 ├── src/
 │   ├── feature_engineering.py
